@@ -26,6 +26,7 @@ export class PostPage {
   constructor(public navCtrl: NavController,public db: AngularFireDatabase) {}
 
 submit() {
+  console.log(this.post.title)
   this.db.list('/posts').push(this.post)
   this.post = new Post()
   this.navCtrl.parent.select(0)
