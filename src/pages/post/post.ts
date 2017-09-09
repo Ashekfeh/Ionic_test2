@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
-import { Data } from '../../providers/data/data'
+import { AngularFireDatabaseModule, AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 /**
  * Generated class for the PostPage page.
@@ -23,10 +23,10 @@ constructor() {}
 })
 export class PostPage {
   post: Post = new Post()
-  constructor(public navCtrl: NavController, public _data: Data) {}
+  constructor(public navCtrl: NavController,public db: AngularFireDatabase) {}
 
 submit() {
-  this._data.addPost(this.post)
+  this.db.list('/posts').push(this.post)
   this.post = new Post()
   this.navCtrl.parent.select(0)
   }

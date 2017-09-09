@@ -52,7 +52,7 @@ const config = {
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Data
+    AngularFireDatabase, AngularFireDatabaseModule
   ]
 })
 export class AppModule {}
